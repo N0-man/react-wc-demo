@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>_n0man's Web Components</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 2rem;
+        font-family: sans-serif;
+      }
+    </style>
+    <script src="bahmni-modal.js"></script>
+    <script src="bahmni-tooltip.js"></script>
+  </head>
+  <body>
+    <bahmni-modal>
+      <h1 slot="title">Welcome to Bahmni</h1>
+      <p>This is build with Web Components ❤️</p>
+    </bahmni-modal>
+    <h3>
+      Bahmni: ReBuild with love using
+      <bahmni-tooltip text="This is corona time">
+        Web Components
+      </bahmni-tooltip>
+    </h3>
+    <p>Please click the button.</p>
+    <button>Show me modal</button>
+    <script>
+      const confirmButton = document.querySelector('button');
+      const modal = document.querySelector('bahmni-modal');
+
+      confirmButton.addEventListener('click', () => {
+        console.log('Show details and confirm clicked');
+        modal.open();
+      });
+
+      modal.addEventListener('confirm', () => {
+        console.log('Confirmed...');
+      });
+
+      modal.addEventListener('cancel', (event) => {
+        console.log('Cancelled...', event);
+      });
+    </script>
+  </body>
+</html>
